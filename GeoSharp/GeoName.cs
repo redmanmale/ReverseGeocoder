@@ -69,7 +69,6 @@ namespace GeoSharp
 
         public GeoName(double Latitude, double Longitude)
         {
-            Name = "Search";
             this.Latitude = Latitude;
             this.Longitude = Longitude;
         }
