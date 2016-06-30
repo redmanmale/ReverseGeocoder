@@ -45,8 +45,7 @@ namespace GeoSharp
                 while (!db.EndOfStream && (Line = db.ReadLine()) != null)
                 {
                     var Place = new GeoName(Line);
-                    if (!MajorPlacesOnly || Place.FeatureClass != GeoFeatureClass.City)
-                        Places.Add(Place);
+                    Places.Add(Place);
                 }
             }
 
