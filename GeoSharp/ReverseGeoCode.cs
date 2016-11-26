@@ -9,19 +9,20 @@ namespace GeoSharp
      * Hmmm, might be nice to get in a simple version that does country->regoin/province->district/municipality/prefecture
      * probably with a nice BVH using a decemated representation from OSM
      */
+
     public class ReverseGeoCode
     {
         private KDTree<GeoName> Tree;
 
-        public ReverseGeoCode(string Database, bool MajorPlacesOnly)
+        public ReverseGeoCode(string Database, bool MajorPlacesOnly = false)
         {
-            using(var db = new FileStream(Database,FileMode.Open))
+            using (var db = new FileStream(Database, FileMode.Open))
             {
                 Initialize(db, MajorPlacesOnly);
             }
         }
 
-        public ReverseGeoCode(Stream Input, bool MajorPlacesOnly)
+        public ReverseGeoCode(Stream Input, bool MajorPlacesOnly = false)
         {
             Initialize(Input, MajorPlacesOnly);
         }
