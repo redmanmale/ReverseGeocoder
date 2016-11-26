@@ -23,7 +23,7 @@ Filtering of data can be done offline using the `GeoDBOptimize` class to create 
 
 Load a database from a file
 ```cs
-GeoSharp.ReverseGeoCode geocode = new GeoSharp.ReverseGeoCode(@"C:\allCountries.txt", true);
+GeoSharp.ReverseGeoCode geocode = new GeoSharp.ReverseGeoCode(@"C:\allCountries.txt");
 Console.WriteLine(geocode.NearestPlaceName(40.730885, -73.997383));
 ```
 
@@ -31,7 +31,7 @@ Load a database from a `Stream`
 ```cs
 using (MemoryStream ms = new MemoryStream(MemoryDB))
 {
-	GeoSharp.ReverseGeoCode geocode = new GeoSharp.ReverseGeoCode(ms, true);
+	GeoSharp.ReverseGeoCode geocode = new GeoSharp.ReverseGeoCode(ms);
 	Console.WriteLine(geocode.NearestPlaceName(40.730885, -73.997383));
 }
 ```
