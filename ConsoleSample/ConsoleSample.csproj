@@ -40,7 +40,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -51,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GeoSharp\GeoSharpVS2010.csproj">
-      <Project>{90c1fdeb-392c-452d-857f-a816b1b1137d}</Project>
-      <Name>GeoSharpVS2010</Name>
+    <ProjectReference Include="..\GeoSharp\GeoSharp.csproj">
+      <Project>{70eeb227-f62d-4ecc-911e-07b643d1fa27}</Project>
+      <Name>GeoSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

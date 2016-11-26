@@ -11,11 +11,12 @@ namespace ConsoleSample
     {
         private static void Main(string[] args)
         {
-            GeoSharp.ReverseGeoCode geocode = new GeoSharp.ReverseGeoCode(@"C:\\geodata\cities5000.txt");
+            GeoSharp.ReverseGeoCode geocode = new GeoSharp.ReverseGeoCode(@"C:\\geodata\cities5000.txt", @"C:\\geodata\countryInfo.txt");
             var place = geocode.NearestPlace(48.1158333, 16.5643811);
             Console.WriteLine("Name: " + place.Name);
             Console.WriteLine("Feature Class: " + place.FeatureClass);
             Console.WriteLine("Country Code: " + place.CountryCode);
+            Console.WriteLine("Country: " + place.Country);
 
             Console.ReadLine();
         }

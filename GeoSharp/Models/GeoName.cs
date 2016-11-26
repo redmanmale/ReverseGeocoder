@@ -49,6 +49,7 @@ namespace GeoSharp
     {
         public string CountryCode { get; set; }
         public GeoFeatureClass FeatureClass { get; set; }
+        public CountryInfo Country { get; set; }
 
         //ISO-3166 2 letter code
         public double Latitude { get; set; }
@@ -68,6 +69,12 @@ namespace GeoSharp
             this.FeatureClass = CodeToClass(Fields[6]);
             this.Latitude = double.Parse(Fields[4]);
             this.Longitude = double.Parse(Fields[5]);
+        }
+
+        public GeoName(string geoEntry, List<CountryInfo> countryInfos) : this(geoEntry)
+        {
+            if (countryInfos == null) throw new ArgumentNullException("countryInfos");
+            this.Country = countryInfos.Find(s => s.Equals(CountryCode));
         }
 
         public GeoName(double latitude, double longitude)

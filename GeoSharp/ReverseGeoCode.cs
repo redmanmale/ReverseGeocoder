@@ -5,52 +5,42 @@ using System.IO;
 //All the geocoding data can be gotten from: http://download.geonames.org/export/dump/
 namespace GeoSharp
 {
-    /*
-     * Hmmm, might be nice to get in a simple version that does country->regoin/province->district/municipality/prefecture
-     * probably with a nice BVH using a decemated representation from OSM
-     */
-
     public class ReverseGeoCode
     {
         private KDTree<GeoName> Tree;
 
-        public ReverseGeoCode(string Database, bool MajorPlacesOnly = false)
+        public ReverseGeoCode(GeoDB database)
         {
-            using (var db = new FileStream(Database, FileMode.Open))
-            {
-                Initialize(db, MajorPlacesOnly);
-            }
+            Tree = new KDTree<GeoName>(database.Places.ToArray());
         }
 
-        public ReverseGeoCode(Stream Input, bool MajorPlacesOnly = false)
+        public ReverseGeoCode(Stream placesDatabase, Stream countryInfoDatabase = null)
         {
-            Initialize(Input, MajorPlacesOnly);
+            GeoDB geodb = new GeoSharp.GeoDB();
+            if (countryInfoDatabase != null) geodb.SetCountryInfos(countryInfoDatabase);
+            geodb.SetPlaces(placesDatabase);
+
+            Tree = new KDTree<GeoName>(geodb.Places.ToArray());
         }
 
-        public string NearestPlaceName(double Latitude, double Longitude)
+        public ReverseGeoCode(string placesDatabase, string countryInfoDatabase = null)
         {
-            return Tree.FindNearest(new GeoName(Latitude, Longitude)).Name;
+            GeoDB geodb = new GeoSharp.GeoDB();
+            if (countryInfoDatabase != null) geodb.SetCountryInfos(countryInfoDatabase);
+            geodb.SetPlaces(placesDatabase);
+
+            Tree = new KDTree<GeoName>(geodb.Places.ToArray());
         }
 
-        public GeoName NearestPlace(double Latitude, double Longitude)
+        public GeoName NearestPlace(double latitude, double longitude)
         {
-            return Tree.FindNearest(new GeoName(Latitude, Longitude));
+            return Tree.FindNearest(new GeoName(latitude, longitude));
         }
 
-        private void Initialize(Stream Input, bool MajorPlacesOnly)
+        public string NearestPlaceName(double latitude, double longitude)
         {
-            List<GeoName> Places = new List<GeoName>();
-            using (StreamReader db = new StreamReader(Input))
-            {
-                string Line;
-                while (!db.EndOfStream && (Line = db.ReadLine()) != null)
-                {
-                    var Place = new GeoName(Line);
-                    Places.Add(Place);
-                }
-            }
-
-            Tree = new KDTree<GeoName>(Places.ToArray());
+            return Tree.FindNearest(new GeoName(latitude, longitude)).Name;
         }
+        
     }
 }
