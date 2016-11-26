@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.IO;
 
 namespace GeoSharp
 {
-    class GeoCode
+    internal class GeoCode
     {
         /* I'm torn between using OSM data, regional heirachical polygons (though this is more for the reverse lookups) or the geoname stuff
          * For now I'm going to just focus on parsing out the names to allow for non-strict structuring etc.
@@ -14,46 +14,44 @@ namespace GeoSharp
          */
         private Dictionary<string, GeoName> Names;
 
-        public GeoCode(string Database, bool MajorPlacesOnly)
+        public GeoCode(string database, bool majorPlacesOnly)
         {
-            using (FileStream fs = new FileStream(Database, FileMode.Open))
+            using (FileStream fs = new FileStream(database, FileMode.Open))
             {
-                Initialize(fs, MajorPlacesOnly);
+                Initialize(fs, majorPlacesOnly);
             }
         }
 
-        public GeoCode(Stream Database, bool MajorPlacesOnly)
+        public GeoCode(Stream Database, bool majorPlacesOnly)
         {
-            Initialize(Database, MajorPlacesOnly);
+            Initialize(Database, majorPlacesOnly);
         }
 
-        private void Initialize(Stream Input, bool MajorPlacesOnly)
+        public List<GeoName> GetPossibleLocations(string location)
         {
             List<GeoName> Places = new List<GeoName>();
-            using (StreamReader db = new StreamReader(Input))
+
+            return Places;
+        }
+
+        private void Initialize(Stream input, bool majorPlacesOnly)
+        {
+            List<GeoName> places = new List<GeoName>();
+            using (StreamReader db = new StreamReader(input))
             {
                 string Line;
                 while (!db.EndOfStream && (Line = db.ReadLine()) != null)
                 {
-                    var Place = new GeoName(Line);
-                    if (!MajorPlacesOnly || Place.FeatureClass != GeoFeatureClass.City)
-                        Places.Add(Place);
+                    var place = new GeoName(Line);
+                    if (!majorPlacesOnly || place.FeatureClass != GeoFeatureClass.City)
+                        places.Add(place);
                 }
             }
 
             Names = new Dictionary<string, GeoName>();
-            foreach(var p in Places)
+            foreach (var p in places)
             {
-
             }
-        }
-
-        public List<GeoName> GetPossibleLocations(string Location)
-        {
-            List<GeoName> Places = new List<GeoName>();
-
-
-            return Places;
         }
     }
 }

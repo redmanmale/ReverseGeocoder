@@ -7,44 +7,44 @@ namespace GeoSharp.KDTree
     {
         private KDNode<T> Root;
 
-        public KDTree(T[] Items)
+        public KDTree(T[] items)
         {
-            Root = CreateTree(Items, 0, Items.Length, 0);
+            Root = CreateTree(items, 0, items.Length, 0);
         }
 
-        public T FindNearest(T Search)
+        public T FindNearest(T search)
         {
-            return FindNearest(Root, Search, 0).Location;
+            return FindNearest(Root, search, 0).Location;
         }
 
         // Only ever goes to log2(items.length) depth so lack of tail recursion is a non-issue
-        private KDNode<T> CreateTree(T[] Items, int Start, int End, int Depth)
+        private KDNode<T> CreateTree(T[] items, int start, int end, int depth)
         {
-            if (Start >= End)
+            if (start >= end)
                 return null;
 
-            Array.Sort(Items, Start, End - Start, Items[0].Comparator((Axis)(Depth % 3)));
-            int Index = Start + ((End - Start) / 2);
-            return new KDNode<T>(CreateTree(Items, Start, Index, Depth + 1), CreateTree(Items, Index + 1, End, Depth + 1), Items[Index]);
+            Array.Sort(items, start, end - start, items[0].Comparator((Axis)(depth % 3)));
+            int Index = start + ((end - start) / 2);
+            return new KDNode<T>(CreateTree(items, start, Index, depth + 1), CreateTree(items, Index + 1, end, depth + 1), items[Index]);
         }
 
-        private KDNode<T> FindNearest(KDNode<T> Node, T Search, int Depth)
+        private KDNode<T> FindNearest(KDNode<T> node, T dearch, int depth)
         {
-            int Direction = Search.Comparator((Axis)(Depth % 3)).Compare(Search, Node.Location);
-            KDNode<T> Next = (Direction < 0) ? Node.Left : Node.Right;
-            KDNode<T> Other = (Direction < 0) ? Node.Right : Node.Left;
-            KDNode<T> Best = (Next == null) ? Node : FindNearest(Next, Search, Depth + 1);
-            if (Node.Location.SquaredDistance(Search) < Best.Location.SquaredDistance(Search))
+            int Direction = dearch.Comparator((Axis)(depth % 3)).Compare(dearch, node.Location);
+            KDNode<T> Next = (Direction < 0) ? node.Left : node.Right;
+            KDNode<T> Other = (Direction < 0) ? node.Right : node.Left;
+            KDNode<T> Best = (Next == null) ? node : FindNearest(Next, dearch, depth + 1);
+            if (node.Location.SquaredDistance(dearch) < Best.Location.SquaredDistance(dearch))
             {
-                Best = Node;
+                Best = node;
             }
 
             if (Other != null)
             {
-                if (Other.Location.AxisSquaredDistance(Search, (Axis)(Depth % 3)) < Best.Location.SquaredDistance(Search))
+                if (Other.Location.AxisSquaredDistance(dearch, (Axis)(depth % 3)) < Best.Location.SquaredDistance(dearch))
                 {
-                    KDNode<T> PossibleBest = FindNearest(Other, Search, Depth + 1);
-                    if (PossibleBest.Location.SquaredDistance(Search) < Best.Location.SquaredDistance(Search))
+                    KDNode<T> PossibleBest = FindNearest(Other, dearch, depth + 1);
+                    if (PossibleBest.Location.SquaredDistance(dearch) < Best.Location.SquaredDistance(dearch))
                     {
                         Best = PossibleBest;
                     }

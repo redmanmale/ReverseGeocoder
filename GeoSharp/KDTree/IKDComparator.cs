@@ -11,12 +11,12 @@ namespace GeoSharp.KDTree
 
     public interface IKDComparator<T>
     {
-        IComparer<T> Comparator(Axis Axis);
-    
-        // Return squared distance between current and other
-        double SquaredDistance(T Other);
-    
         // Return squared distance between one axis only
-        double AxisSquaredDistance(T Other, Axis Axis);
+        double AxisSquaredDistance(T other, Axis axis);
+
+        IComparer<T> Comparator(Axis axis);
+
+        // Return squared distance between current and other
+        double SquaredDistance(T other);
     }
 }
