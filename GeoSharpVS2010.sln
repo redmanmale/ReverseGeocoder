@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoSharpVS2010", "GeoSharp\GeoSharpVS2010.csproj", "{90C1FDEB-392C-452D-857F-A816B1B1137D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoSharpVS2010", "src\GeoSharp\GeoSharpVS2010.csproj", "{90C1FDEB-392C-452D-857F-A816B1B1137D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSample", "ConsoleSample\ConsoleSample.csproj", "{3E3D220E-ED0F-432E-BFBA-9BF7F01A3387}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSample", "samples\ConsoleSample\ConsoleSample.csproj", "{3E3D220E-ED0F-432E-BFBA-9BF7F01A3387}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

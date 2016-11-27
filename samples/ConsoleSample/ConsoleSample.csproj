@@ -50,7 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GeoSharp\GeoSharp.csproj">
+    <ProjectReference Include="..\..\src\GeoSharp\GeoSharp.csproj">
       <Project>{70eeb227-f62d-4ecc-911e-07b643d1fa27}</Project>
       <Name>GeoSharp</Name>
     </ProjectReference>
