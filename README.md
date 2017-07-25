@@ -1,41 +1,40 @@
-GeoSharp
-========
+# ReverseGeocoder
 
-An offline Geocoding library for .Net coded in C#.
-Based on the awesome Java lib by AReallyGoodName: https://github.com/AReallyGoodName/OfflineReverseGeocode
-You may also be interested in https://github.com/RobThree/NGeoNames (also under MIT).
+[![Build status](https://ci.appveyor.com/api/projects/status/q7v8w5qt73b8gd38?svg=true)](https://ci.appveyor.com/project/redmanmale/reversegeocoder)
 
-## Requirements
+An offline geocoding library in C#. As a source of geodata may be used [GeoNames.org](http://geonames.org/).
 
-- This library is built for .Net 4, however it should work fine with 3.5 and Mono.
-- The data that is fed in needs to be in the `geoname` format as described [here](http://download.geonames.org/export/dump/readme.txt).
-- [Here](http://download.geonames.org/export/dump/) you'll find various sets of formatted data to use for the reverse geocoding.
+## Getting started
 
-## Performance
+### Get geodata
 
-The look ups are very fast, `O(logn)`, however building the initial KD-Tree is not so fast, `O(kn * logn)`,
-so pre-selecting your datasets and filtering out places or areas that are not of interest (like water bodies) can be used to improve load speed and reduce
-memory usage.
+For this library to work offline you need to download in advance the geodata files (from [here](http://download.geonames.org/export/dump/)). You can get file for one country or with all cities of the world with population more than 15k, 5k or 1k.
 
-Filtering of data can be done offline using the `GeoDBOptimize` class to create tailored `geoname` tables.
+Also you may need to get country list to be able to get country name by its code.
 
-## Usage
+### Basic usage
 
-Load a database from a file
+There are two options:
+
+* Load a geodata from a file
 ```cs
-GeoSharp.ReverseGeoCode geocode = new GeoSharp.ReverseGeoCode(@"C:\allCountries.txt");
-Console.WriteLine(geocode.NearestPlaceName(40.730885, -73.997383));
+var geocoder = new ReverseGeocoder(@"C:\cities1000.txt");
+Console.WriteLine(geocoder.NearestPlaceName(40.730885, -73.997383));
 ```
 
-Load a database from a `Stream`
+* Load a geodata from a `Stream`
 ```cs
-using (MemoryStream ms = new MemoryStream(MemoryDB))
+using (MemoryStream ms = new MemoryStream(geodata))
 {
-	GeoSharp.ReverseGeoCode geocode = new GeoSharp.ReverseGeoCode(ms);
-	Console.WriteLine(geocode.NearestPlaceName(40.730885, -73.997383));
+	GeoSharp.ReverseGeoCoder geocoder = new GeoSharp.ReverseGeoCoder(ms);
+	Console.WriteLine(geocoder.NearestPlaceName(40.730885, -73.997383));
 }
 ```
 
-## License
+### Perfomance
 
-Licensed under The **MIT** License.
+The look ups are very fast, `O(logn)`, however building the initial KD-Tree is not so fast, `O(kn * logn)`, so pre-selecting your datasets and filtering out places or areas that are not of interest (like water bodies) can be used to improve load speed and reduce memory usage.
+
+## Acknowledgment
+
+Based on [GeoSharp](https://github.com/gdegeneve/GeoSharp) by [gdegeneve](https://github.com/gdegeneve).
