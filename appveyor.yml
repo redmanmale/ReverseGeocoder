@@ -1,0 +1,44 @@
+version: 0.1.{build}
+
+branches:
+  only:
+    - master
+
+os: Visual Studio 2017
+platform: Any CPU
+configuration: Release
+
+build:
+  project: ReverseGeocoder.sln
+  publish_nuget: true
+  publish_nuget_symbols: true
+
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+
+shallow_clone: true
+
+deploy:
+  - provider: GitHub
+    name: github_release
+    auth_token:
+      secure: B8gZhfAArOTHNESIhicNlL/BOgz3dBlqV/TGFReQHe5EVIjhtFWbjc3mvRD83DaI
+    artifact: /^ReverseGeocoder.*\.nupkg$/
+    draft: false
+    prerelease: false
+    on:
+      appveyor_repo_tag: true
+  
+  - provider: NuGet
+    name: nuget_release
+    api_key:
+      secure: dneZawAI0W9FhzS0HchqG+lYctcJbuJ+Yv/77lnVuTWX4H/NeHPW06Daw3fxHekY
+    artifact: /^ReverseGeocoder.*\.nupkg$/
+    draft: false
+    prerelease: false
+    on:
+      appveyor_repo_tag: true
