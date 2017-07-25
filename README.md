@@ -2,7 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/q7v8w5qt73b8gd38?svg=true)](https://ci.appveyor.com/project/redmanmale/reversegeocoder)
 
-An offline geocoding library in C#. As a source of geodata may be used [GeoNames.org](http://geonames.org/).
+An offline reverse geocoding library in C#. As a source of geodata may be used [GeoNames.org](http://geonames.org/).
 
 ## Getting started
 
