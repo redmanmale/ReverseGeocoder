@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>ReverseGeocoder</id>
+    <version>$version$</version>
+    <authors>Necrolis, MisterJimson, gdegeneve, redmanmale</authors>
+    <owners>redmanmale</owners>
+    <projectUrl>https://github.com/redmanmale/ReverseGeocoder</projectUrl>
+    <licenseUrl>https://github.com/redmanmale/ReverseGeocoder/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An offline geocoding library for .Net coded in C#. Based on the awesome Java lib by AReallyGoodName. All the geocoding data can be gotten from: http://download.geonames.org/export/dump/</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright (c) 2014-2017</copyright>
+    <tags>geocoding, geo</tags>
+  </metadata>
+</package>

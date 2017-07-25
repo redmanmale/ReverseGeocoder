@@ -7,9 +7,9 @@
     <ProjectGuid>{70EEB227-F62D-4ECC-911E-07B643D1FA27}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GeoSharp</RootNamespace>
-    <AssemblyName>GeoSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>ReverseGeocoder</RootNamespace>
+    <AssemblyName>ReverseGeocoder</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -40,14 +45,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeoDB.cs" />
-    <Compile Include="GeoDBOptimize.cs" />
-    <Compile Include="Models\CountryInfo.cs" />
-    <Compile Include="Models\GeoName.cs" />
-    <Compile Include="ReverseGeoCode.cs" />
-    <Compile Include="KDTree\IKDComparator.cs" />
-    <Compile Include="KDTree\KDNode.cs" />
-    <Compile Include="KDTree\KDTree.cs" />
+    <Compile Include="Model\OptStats.cs" />
+    <Compile Include="GeoDb.cs" />
+    <Compile Include="GeoDbOptimize.cs" />
+    <Compile Include="Interface\IReverseGeocoder.cs" />
+    <Compile Include="KdTree\Axis.cs" />
+    <Compile Include="KdTree\KdNode.cs" />
+    <Compile Include="KdTree\KdTree.cs" />
+    <Compile Include="Model\CountryInfo.cs" />
+    <Compile Include="Model\CountryInfoFields.cs" />
+    <Compile Include="Model\FeatureClass.cs" />
+    <Compile Include="Model\PlaceInfoFields.cs" />
+    <Compile Include="Model\PlaceInfo.cs" />
+    <Compile Include="Interface\ICountryInfo.cs" />
+    <Compile Include="Interface\IPlaceInfo.cs" />
+    <Compile Include="GeoUtils.cs" />
+    <Compile Include="Model\PointD.cs" />
+    <Compile Include="ReverseGeocoder.cs" />
+    <Compile Include="KdTree\IKdComparator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

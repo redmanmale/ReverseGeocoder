@@ -1,15 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace GeoSharp.KDTree
+namespace ReverseGeocoder.KDTree
 {
-    public enum Axis
-    {
-        X,
-        Y,
-        Z
-    }
-
-    public interface IKDComparator<T>
+    internal interface IKdComparator<in T>
     {
         // Return squared distance between one axis only
         double AxisSquaredDistance(T other, Axis axis);
