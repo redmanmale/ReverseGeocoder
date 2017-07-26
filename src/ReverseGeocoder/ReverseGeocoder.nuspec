@@ -8,9 +8,9 @@
     <projectUrl>https://github.com/redmanmale/ReverseGeocoder</projectUrl>
     <licenseUrl>https://github.com/redmanmale/ReverseGeocoder/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>An offline geocoding library for .Net coded in C#. Based on the awesome Java lib by AReallyGoodName. All the geocoding data can be gotten from: http://download.geonames.org/export/dump/</description>
+    <description>An offline reverse geocoding library for .Net coded in C#. Based on the awesome Java lib by AReallyGoodName. All the geocoding data can be gotten from: http://download.geonames.org/export/dump/</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright (c) 2014-2017</copyright>
-    <tags>geocoding, geo</tags>
+    <tags>geocoding, geo, reverse-geocoding, offline, library</tags>
   </metadata>
 </package>
