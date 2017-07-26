@@ -1,4 +1,4 @@
-﻿namespace ReverseGeocoder.Model
+﻿namespace ReverseGeocoding.Model
 {
     /// <summary>
     /// http://www.geonames.org/export/codes.html

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Globalization;
-using ReverseGeocoder.Interface;
+using ReverseGeocoding.Interface;
 
-namespace ReverseGeocoder.Model
+namespace ReverseGeocoding.Model
 {
     internal class CountryInfo : IEquatable<string>, IEquatable<CountryInfo>, ICountryInfo
     {

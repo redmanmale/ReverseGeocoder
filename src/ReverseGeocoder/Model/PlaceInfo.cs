@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using ReverseGeocoder.Interface;
-using ReverseGeocoder.KDTree;
+using ReverseGeocoding.Interface;
+using ReverseGeocoding.KdTree;
 
-namespace ReverseGeocoder.Model
+namespace ReverseGeocoding.Model
 {
     internal class PlaceInfo : IKdComparator<PlaceInfo>, IPlaceInfo
     {

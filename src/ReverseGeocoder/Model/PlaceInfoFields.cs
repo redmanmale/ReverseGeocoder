@@ -1,4 +1,4 @@
-﻿namespace ReverseGeocoder.Model
+﻿namespace ReverseGeocoding.Model
 {
     public enum PlaceInfoFields
     {

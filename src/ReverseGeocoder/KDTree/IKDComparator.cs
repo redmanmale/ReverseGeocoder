@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ReverseGeocoder.KDTree
+namespace ReverseGeocoding.KdTree
 {
     internal interface IKdComparator<in T>
     {

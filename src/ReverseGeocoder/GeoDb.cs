@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ReverseGeocoder.Interface;
-using ReverseGeocoder.Model;
+using ReverseGeocoding.Interface;
+using ReverseGeocoding.Model;
 
-namespace ReverseGeocoder
+namespace ReverseGeocoding
 {
     /// <summary>
     /// All the geocoding data can be gotten from: http://download.geonames.org/export/dump/

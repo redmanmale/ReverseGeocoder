@@ -1,4 +1,4 @@
-﻿namespace ReverseGeocoder.KDTree
+﻿namespace ReverseGeocoding.KdTree
 {
     internal enum Axis
     {

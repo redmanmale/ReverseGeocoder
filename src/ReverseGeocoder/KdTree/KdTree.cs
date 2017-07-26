@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReverseGeocoder.KDTree
+namespace ReverseGeocoding.KdTree
 {
     internal class KdTree<T> where T : IKdComparator<T>
     {

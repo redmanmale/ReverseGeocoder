@@ -1,4 +1,4 @@
-﻿namespace ReverseGeocoder
+﻿namespace ReverseGeocoding.Model
 {
     public struct PointD //why doesn't .Net have a non-windows specific version of this :'(
     {

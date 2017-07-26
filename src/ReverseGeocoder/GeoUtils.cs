@@ -1,7 +1,7 @@
 ﻿using System;
-using ReverseGeocoder.Model;
+using ReverseGeocoding.Model;
 
-namespace ReverseGeocoder
+namespace ReverseGeocoding
 {
     internal static class GeoUtils
     {

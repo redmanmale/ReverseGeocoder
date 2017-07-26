@@ -4,9 +4,9 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
-using ReverseGeocoder.Model;
+using ReverseGeocoding.Model;
 
-namespace ReverseGeocoder
+namespace ReverseGeocoding
 {
     public static class GeoDbOptimize
     {

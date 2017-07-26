@@ -1,6 +1,6 @@
-﻿using ReverseGeocoder.Model;
+﻿using ReverseGeocoding.Model;
 
-namespace ReverseGeocoder.Interface
+namespace ReverseGeocoding.Interface
 {
     public interface IPlaceInfo
     {

@@ -1,4 +1,4 @@
-﻿namespace ReverseGeocoder
+﻿namespace ReverseGeocoding.Model
 {
     public struct OptStats
     {

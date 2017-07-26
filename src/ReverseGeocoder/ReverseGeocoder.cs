@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ReverseGeocoder.Interface;
-using ReverseGeocoder.KDTree;
-using ReverseGeocoder.Model;
+using ReverseGeocoding.Interface;
+using ReverseGeocoding.KdTree;
+using ReverseGeocoding.Model;
 
-namespace ReverseGeocoder
+namespace ReverseGeocoding
 {
     public class ReverseGeocoder : IReverseGeocoder
     {

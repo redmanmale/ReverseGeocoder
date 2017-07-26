@@ -1,4 +1,4 @@
-﻿namespace ReverseGeocoder.Interface
+﻿namespace ReverseGeocoding.Interface
 {
     public interface IReverseGeocoder
     {
