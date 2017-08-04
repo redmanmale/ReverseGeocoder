@@ -1,9 +1,13 @@
-version: 0.1.1.{build}
-
-branches:
-  only:
-    - /^v[\d+\.]+$/
-    - master
+init:
+  - ps: >-
+        if ($env:APPVEYOR_REPO_TAG -eq "true")
+        {
+            Update-AppveyorBuild -Version "$($env:APPVEYOR_REPO_TAG_NAME.TrimStart("v."))"
+        }
+        else
+        {
+            Update-AppveyorBuild -Version "1.0.0.$env:APPVEYOR_BUILD_VERSION"
+        }
 
 os: Visual Studio 2017
 platform: Any CPU
@@ -13,6 +17,10 @@ build:
   project: ReverseGeocoder.sln
   publish_nuget: true
   publish_nuget_symbols: true
+
+test:
+  assemblies:
+    - '**\*.tests.dll'
 
 assembly_info:
   patch: true
@@ -33,7 +41,7 @@ deploy:
     prerelease: false
     on:
       appveyor_repo_tag: true
-  
+
   - provider: NuGet
     name: nuget_release
     api_key:
