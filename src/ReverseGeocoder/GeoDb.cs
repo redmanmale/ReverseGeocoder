@@ -45,7 +45,7 @@ namespace ReverseGeocoding
 
             IReadOnlyDictionary<string, ICountryInfo> countryInfos = null;
 
-            if (string.IsNullOrWhiteSpace(countryInfoDbPath))
+            if (!string.IsNullOrWhiteSpace(countryInfoDbPath))
             {
                 countryInfos = GetCountryInfos(countryInfoDbPath);
                 CountryInfos = countryInfos.Values.ToList();
