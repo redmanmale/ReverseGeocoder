@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using ReverseGeocoding.Model;
 
 namespace ReverseGeocoding
@@ -53,6 +54,11 @@ namespace ReverseGeocoding
             }
 
             return fields[(int)Enum.ToObject(type, field)];
+        }
+
+        public static int? GetIntOrNull(this string value)
+        {
+            return int.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out var result) ? (int?)result : null;
         }
     }
 }
