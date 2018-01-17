@@ -11,13 +11,28 @@ namespace ReverseGeocoding.Tests
         private const string citiesDb = "cities1000.txt";
         private const string countresDb = "countryInfo.txt";
 
+        private const string testCity1 = "Grajaú";
+        private const string testCountry1 = "Brazil";
+        private const double testPlaceLatitude1 = -6.48449;
+        private const double testPlaceLongitude1 = -46.07212;
+
+        private const string testCity2 = "Chumikan";
+        private const string testCountry2 = "Russia";
+        private const double testPlaceLatitude2 = 54.30208;
+        private const double testPlaceLongitude2 = 136.45948;
+
+        private const string testCity3 = "Nayun";
+        private const string testCountry3 = "China";
+        private const double testPlaceLatitude3 = 21.92051;
+        private const double testPlaceLongitude3 = 99.15254;
+
         private static string CitiesDbPath => Path.Combine(TestContext.CurrentContext.TestDirectory, citiesDb);
 
         private static string CountresDbPath => Path.Combine(TestContext.CurrentContext.TestDirectory, countresDb);
 
-        [TestCase(-6.48449, -46.07212, "Grajaú")]
-        [TestCase(54.30208, 136.45948, "Chumikan")]
-        [TestCase(21.92051, 99.15254, "Nayun")]
+        [TestCase(testPlaceLatitude1, testPlaceLongitude1, testCity1)]
+        [TestCase(testPlaceLatitude2, testPlaceLongitude2, testCity2)]
+        [TestCase(testPlaceLatitude3, testPlaceLongitude3, testCity3)]
         public void PlacePathTest(double latitude, double longitude, string placeName)
         {
             IReverseGeocoder geocoder = new ReverseGeocoder(CitiesDbPath);
@@ -27,9 +42,9 @@ namespace ReverseGeocoding.Tests
             Assert.AreEqual(placeName, place.Name);
         }
 
-        [TestCase(-6.48449, -46.07212, "Grajaú", "Brazil")]
-        [TestCase(54.30208, 136.45948, "Chumikan", "Russia")]
-        [TestCase(21.92051, 99.15254, "Nayun", "China")]
+        [TestCase(testPlaceLatitude1, testPlaceLongitude1, testCity1, testCountry1)]
+        [TestCase(testPlaceLatitude2, testPlaceLongitude2, testCity2, testCountry2)]
+        [TestCase(testPlaceLatitude3, testPlaceLongitude3, testCity3, testCountry3)]
         public void CountryPathTest(double latitude, double longitude, string placeName, string countryName)
         {
             IReverseGeocoder geocoder = new ReverseGeocoder(CitiesDbPath, CountresDbPath);
@@ -41,9 +56,9 @@ namespace ReverseGeocoding.Tests
             Assert.AreEqual(countryName, place.CountryInfo.Country);
         }
 
-        [TestCase(-6.48449, -46.07212, "Grajaú")]
-        [TestCase(54.30208, 136.45948, "Chumikan")]
-        [TestCase(21.92051, 99.15254, "Nayun")]
+        [TestCase(testPlaceLatitude1, testPlaceLongitude1, testCity1)]
+        [TestCase(testPlaceLatitude2, testPlaceLongitude2, testCity2)]
+        [TestCase(testPlaceLatitude3, testPlaceLongitude3, testCity3)]
         public void PlaceStreamTest(double latitude, double longitude, string placeName)
         {
             using (var fileStream = File.OpenRead(CitiesDbPath))
@@ -56,9 +71,9 @@ namespace ReverseGeocoding.Tests
             }
         }
 
-        [TestCase(-6.48449, -46.07212, "Grajaú", "Brazil")]
-        [TestCase(54.30208, 136.45948, "Chumikan", "Russia")]
-        [TestCase(21.92051, 99.15254, "Nayun", "China")]
+        [TestCase(testPlaceLatitude1, testPlaceLongitude1, testCity1, testCountry1)]
+        [TestCase(testPlaceLatitude2, testPlaceLongitude2, testCity2, testCountry2)]
+        [TestCase(testPlaceLatitude3, testPlaceLongitude3, testCity3, testCountry3)]
         public void CountryStreamTest(double latitude, double longitude, string placeName, string countryName)
         {
             using (var fileStreamCities = File.OpenRead(CitiesDbPath))
@@ -74,9 +89,9 @@ namespace ReverseGeocoding.Tests
             }
         }
 
-        [TestCase(-6.48449, -46.07212, "Grajaú")]
-        [TestCase(54.30208, 136.45948, "Chumikan")]
-        [TestCase(21.92051, 99.15254, "Nayun")]
+        [TestCase(testPlaceLatitude1, testPlaceLongitude1, testCity1)]
+        [TestCase(testPlaceLatitude2, testPlaceLongitude2, testCity2)]
+        [TestCase(testPlaceLatitude3, testPlaceLongitude3, testCity3)]
         public void PlaceDbTest(double latitude, double longitude, string placeName)
         {
             var geoDb = new GeoDb(CitiesDbPath);
@@ -88,9 +103,9 @@ namespace ReverseGeocoding.Tests
             Assert.AreEqual(placeName, place.Name);
         }
 
-        [TestCase(-6.48449, -46.07212, "Grajaú", "Brazil")]
-        [TestCase(54.30208, 136.45948, "Chumikan", "Russia")]
-        [TestCase(21.92051, 99.15254, "Nayun", "China")]
+        [TestCase(testPlaceLatitude1, testPlaceLongitude1, testCity1, testCountry1)]
+        [TestCase(testPlaceLatitude2, testPlaceLongitude2, testCity2, testCountry2)]
+        [TestCase(testPlaceLatitude3, testPlaceLongitude3, testCity3, testCountry3)]
         public void CountryDbTest(double latitude, double longitude, string placeName, string countryName)
         {
             var geoDb = new GeoDb(CitiesDbPath, CountresDbPath);
@@ -104,9 +119,9 @@ namespace ReverseGeocoding.Tests
             Assert.AreEqual(countryName, place.CountryInfo.Country);
         }
 
-        [TestCase(-6.48449, -46.07212, "Grajaú")]
-        [TestCase(54.30208, 136.45948, "Chumikan")]
-        [TestCase(21.92051, 99.15254, "Nayun")]
+        [TestCase(testPlaceLatitude1, testPlaceLongitude1, testCity1)]
+        [TestCase(testPlaceLatitude2, testPlaceLongitude2, testCity2)]
+        [TestCase(testPlaceLatitude3, testPlaceLongitude3, testCity3)]
         public void PlaceNamePathTest(double latitude, double longitude, string placeNameReference)
         {
             IReverseGeocoder geocoder = new ReverseGeocoder(CitiesDbPath);
