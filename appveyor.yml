@@ -48,7 +48,7 @@ deploy:
   - provider: NuGet
     name: nuget_release
     api_key:
-      secure: dneZawAI0W9FhzS0HchqG+lYctcJbuJ+Yv/77lnVuTWX4H/NeHPW06Daw3fxHekY
+      secure: PmCWZn5JkAAO7/vZk3yFDrCJMEVbRy3wfAydxiieXtwwIlSYd53Z0MZP3M3KSPFk
     artifact: /^ReverseGeocoder.*\.nupkg$/
     draft: false
     prerelease: false
