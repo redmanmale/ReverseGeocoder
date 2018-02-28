@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ReverseGeocoder")]
-[assembly: AssemblyCopyright("Copyright © 2014-2017")]
+[assembly: AssemblyCopyright("Copyright © 2014-2018 redmanmale")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

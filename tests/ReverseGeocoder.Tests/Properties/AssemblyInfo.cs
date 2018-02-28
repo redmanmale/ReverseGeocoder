@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ReverseGeocoder.Tests")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("https://github.com/redmanmale/ReverseGeocoder")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ReverseGeocoder.Tests")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright © 2017-2018 redmanmale")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
